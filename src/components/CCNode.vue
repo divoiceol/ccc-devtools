@@ -7,7 +7,7 @@
     </div>
     <template v-if="ccNode!.name != 'PROFILER_NODE'">
         <PropItem v-for="prop in NodeModel.props" :key="prop.key" :model="NodeModel" :prop-name="prop.name"
-            :prop-key="prop.key" :update-key="updateKey!"></PropItem>
+            :prop-key="prop.key" :update-key="updateKey!" :clz-name=undefined></PropItem>
     </template>
     <ProfilerPanel v-if="ccNode!.name == 'PROFILER_NODE'" :show="true"></ProfilerPanel>
 </template>

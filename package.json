@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
+    "make": "vue-tsc --noEmit && vite build && node scripts/setup.js",
     "preview": "vite preview",
     "package": "node scripts/package.js",
     "setup": "node scripts/setup.js"

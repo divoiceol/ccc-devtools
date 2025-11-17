@@ -14,10 +14,7 @@
         <CCNode :cc-node="currentNode" :update-key="updateKey"></CCNode>
         <div class="row" style="height: 2px;background-color: #1d1e21"></div>
         <template v-for="component in Utils.getComponents(currentNode)" :key="component.name">
-          <CCComponent v-if="component.name.startsWith('cc.')" :component="component.target" :name="component.name"
-            :update-key="updateKey"></CCComponent>
-          <UserComponent v-else :component="component.target" :name="component.name" :update-key="updateKey">
-          </UserComponent>
+          <CCComponent :component="component.target" :name="component.name" :update-key="updateKey"></CCComponent>
           <div class="row" style="height: 2px;background-color: #1d1e21"></div>
         </template>
       </el-scrollbar>
@@ -31,7 +28,6 @@ import { ref } from 'vue-demi';
 import CCNode from './CCNode.vue';
 import Utils from '../misc/Utils';
 import CCComponent from './CCComponent.vue';
-import UserComponent from './UserComponent.vue';
 
 const props = defineProps({
   show: Boolean,
@@ -166,5 +162,13 @@ span {
 
 .node-hide {
   opacity: 0.3;
+}
+
+.el-tree--highlight-current .el-tree-node.is-current>.el-tree-node__content {
+    background-color: var(--el-color-primary-light-5);
+}
+
+.el-tree-node__content:hover {
+    background-color: var(--el-fill-color-dark)
 }
 </style>

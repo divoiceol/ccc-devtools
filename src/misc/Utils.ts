@@ -44,13 +44,22 @@ export default class Utils {
         bgNode.layer = target.layer;
         let isZeroSize = rect.width === 0 || rect.height === 0;
         if (isZeroSize) {
-            graphics.circle(0, 0, 100);
-            graphics.fillColor = cc.Color.GREEN;
+            graphics.circle(0, 0, 32);
+            graphics.fillColor = new cc.Color().fromHEX('#00FF0080');
             graphics.fill();
         } else {
             bgTransform.width = rect.width;
             bgTransform.height = rect.height;
             graphics.rect(-bgTransform.width / 2, -bgTransform.height / 2, bgTransform.width, bgTransform.height);
+
+            let wrap = 8;
+            if (bgTransform.width > wrap && bgTransform.height > wrap) {
+                graphics.fillColor = new cc.Color().fromHEX('#00FF0080');
+                graphics.fill();
+
+                graphics.rect(-bgTransform.width / 2 + wrap / 2, -bgTransform.height / 2 + wrap / 2, bgTransform.width - wrap, bgTransform.height - wrap);
+            }
+
             graphics.fillColor = new cc.Color().fromHEX('#E91E6390');
             graphics.fill();
         }

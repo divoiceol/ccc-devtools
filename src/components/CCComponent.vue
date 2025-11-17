@@ -5,7 +5,7 @@
         <el-button size="small" @click="Utils.outputToConsole(component)">></el-button>
     </div>
     <PropItem v-if="model" v-for="prop in model.props" :key="prop.key" :model="prop.custom ? model : component" :prop-name="prop.name" :prop-key="prop.key"
-        :update-key="updateKey!"></PropItem>
+        :update-key="updateKey!" :clz-name="props.name"></PropItem>
 </template>
 
 <script setup lang="ts">
